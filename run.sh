@@ -107,14 +107,14 @@ mkdir ./iteres_output
 
 # Cage-Seq
 if [ -n "$cage_window" ]; then
-    echo "./iteres/iteres stat -w -o ./iteres_output/$bam/$bam -W $cage_window $chrom_size $subfam_size $rmsk_path $bam_file"
-    echo "./iteres/iteres filter -o ./iteres_output/$bam/$bam -W $cage_window $chrom_size $subfam_size $rmsk_path $bam_file"
+    echo "./iteres stat -w -o ./iteres_output/$bam/$bam -W $cage_window $chrom_size $subfam_size $rmsk_path $bam_file"
+    echo "./iteres filter -o ./iteres_output/$bam/$bam -W $cage_window $chrom_size $subfam_size $rmsk_path $bam_file"
 
     python zarrScript.py --local --CAGE -op $output_path/"$item"/"$item".zarr -lp ./iteres_output/"$item"/"$item"_ALL.iteres.loci -ssp ./iteres_output/"$item"/"$item".iteres.subfamily.stat --cageWigPlus ./iteres_output/"$item"/"$item"_+.iteres.wig  --cageWigMinus ./iteres_output/"$item"/"$item"_-.iteres.wig --cageWigUniPlus ./iteres_output/"$item"/"$item"_+.iteres.unique.wig --cageWigUniMinus ./iteres_output/"$item"/"$item"_-.iteres.unique.wig --subfamily_size_filepath "$subfam_size"
 elif [ -n "$bam_file" ]; then
     # Atac-Seq and Dnase-Seq
-      echo "./iteres/iteres stat -w -o ./iteres_output/$bam/$bam $chrom_size $subfam_size $rmsk_path $bam_file"
-      echo "./iteres/iteres filter -o ./iteres_output/$bam/$bam $chrom_size $subfam_size $rmsk_path $bam_file"
+      echo "./iteres stat -w -o ./iteres_output/$bam/$bam $chrom_size $subfam_size $rmsk_path $bam_file"
+      echo "./iteres filter -o ./iteres_output/$bam/$bam $chrom_size $subfam_size $rmsk_path $bam_file"
 
       python zarrScript.py --local -op $output_path/"$item"/"$item".zarr -lp ./iteres_output/"$item"/"$item"_ALL.iteres.loci -ssp ./iteres_output/"$item"/"$item".iteres.subfamily.stat -awp ./iteres_output/"$item"/"$item".iteres.wig -uwp ./iteres_output/"$item"/"$item".iteres.unique.wig --subfamily_size_filepath "$subfam_size"
 else
@@ -122,14 +122,14 @@ else
       echo "Signal BAM File: $signal_bam_file"
       signal_bam=$(basename -- "$signal_bam_file")
       signal_bam="${signal_bam%.*}"
-      echo "./iteres/iteres stat -w -o ./iteres_output/$signal_bam/$signal_bam $chrom_size $subfam_size $rmsk_path $signal_bam_file"
-      echo "./iteres/iteres filter -o ./iteres_output/$signal_bam/$signal_bam $chrom_size $subfam_size $rmsk_path $signal_bam_file"
+      echo "./iteres stat -w -o ./iteres_output/$signal_bam/$signal_bam $chrom_size $subfam_size $rmsk_path $signal_bam_file"
+      echo "./iteres filter -o ./iteres_output/$signal_bam/$signal_bam $chrom_size $subfam_size $rmsk_path $signal_bam_file"
 
       echo "Control BAM File: $control_bam_file"
       control_bam=$(basename -- "$control_bam_file")
       control_bam="${control_bam%.*}"
-      echo "./iteres/iteres stat -w -o ./iteres_output/$control_bam/$control_bam $chrom_size $subfam_size $rmsk_path $control_bam_file"
-      echo "./iteres/iteres filter -o ./iteres_output/$control_bam/$control_bam $chrom_size $subfam_size $rmsk_path $control_bam_file"
+      echo "./iteres stat -w -o ./iteres_output/$control_bam/$control_bam $chrom_size $subfam_size $rmsk_path $control_bam_file"
+      echo "./iteres filter -o ./iteres_output/$control_bam/$control_bam $chrom_size $subfam_size $rmsk_path $control_bam_file"
 
       echo "Generating Zarr"
       mkdir ./zarr_output
