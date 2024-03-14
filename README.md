@@ -75,7 +75,24 @@ STAR --chimSegmentMin 100
 We consult the [SQuIRE](https://github.com/wyang17/SQuIRE) repository for guidance on the STAR parameters related to handling CAGE-Seq multireads.
 
 ### Step 1. Run the pipeline
-You can choose to run the bash file or run the whole pipeline manually.
+You can choose to run the bash file or run the whole pipeline by the bash file **run.sh**. 
+
+Here are some sample files for human you may need:
+```bash
+--chrom_size
+--subfam_size 
+--rmsk_path 
+```
+
+**Repeat size file**: [here](https://epigenome.wustl.edu/iteres/download/hg19/subfam.size) (length of consensus sequence of repeat subfamily)
+
+**hg19**: Repeat annotation: [download from UCSC](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/rmsk.txt.gz)
+
+**hg19**: Chromosome size file: [Full](https://epigenome.wustl.edu/iteres/download/hg19/hg19_full.size)    [Lite](https://epigenome.wustl.edu/iteres/download/hg19/hg19_lite.size) (without supercontigs)
+
+**hg38**: Repeat annotation: [download from UCSC](http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/rmsk.txt.gz)
+
+**hg38**: Chromosome size file: [Full](https://epigenome.wustl.edu/iteres/download/hg38/hg38_full.size)    [Lite](https://epigenome.wustl.edu/iteres/download/hg38/hg38_lite.size) (without supercontigs)
 
 For the bash file:
 #### (1). The default scenario
